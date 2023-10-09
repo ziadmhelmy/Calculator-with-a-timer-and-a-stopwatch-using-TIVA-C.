@@ -1,0 +1,277 @@
+###############################################################################
+#
+# IAR ELF Linker V9.30.1.335/W64 for ARM                  27/Dec/2022  01:08:55
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =  E:\embedded projects\Honda tiva\Debug\Exe\toggle.out
+#    Map file     =  E:\embedded projects\Honda tiva\Debug\List\toggle.map
+#    Command line =
+#        -f "E:\embedded projects\Honda tiva\Debug\Exe\toggle.out.rsp"
+#        ("E:\embedded projects\Honda tiva\Debug\Obj\main.o" "E:\embedded
+#        projects\Honda tiva\Debug\Obj\startup_ewarm.o" --no_out_extension -o
+#        "E:\embedded projects\Honda tiva\Debug\Exe\toggle.out" --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        "E:\embedded projects\Honda tiva\Debug\List\toggle.map" --config
+#        "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.1\arm/config/linker/TexasInstruments/TM4C123GE6.icf" --semihosting
+#        D:\ti\TivaWare_C_Series-2.2.0.295\driverlib\ewarm\Exe\driverlib.a
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M4
+#        --fpu=VFPv4_sp)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__Heap_Handler  = NoFree
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The no free heap was selected because no calls to memory
+deallocation functions were found in the application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x1'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+do not initialize { rw section .noinit };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                       0x26c
+  .intvec            const            0x0   0x26c  startup_ewarm.o [1]
+                                  - 0x26c   0x26c
+
+"P1":                                       0xd71
+  .text              ro code        0x26c   0xb48  main.o [1]
+  .text              ro code        0xdb4    0x4c  no_free_heap0.o [2]
+  .text              ro code        0xe00    0x56  ABImemcpy_unaligned.o [4]
+  .text              ro code        0xe56    0x3a  packbits_init_single.o [4]
+  .text              ro code        0xe90    0x2c  xgetmemchunk.o [2]
+  .text              ro code        0xebc    0x28  data_init.o [4]
+  .text              ro code        0xee4    0x22  fpinit_M.o [3]
+  .iar.init_table    const          0xf08    0x10  - Linker created -
+  .text              ro code        0xf18    0x1e  startup_ewarm.o [1]
+  .text              ro code        0xf38    0x1c  cstartup_M.o [4]
+  .text              ro code        0xf54    0x1e  cmain.o [4]
+  .text              ro code        0xf72     0x4  low_level_init.o [2]
+  .text              ro code        0xf76     0x4  exit.o [2]
+  .text              ro code        0xf7c     0xa  cexit.o [4]
+  .text              ro code        0xf88    0x14  exit.o [5]
+  .rodata            const          0xf9c    0x14  main.o [1]
+  .rodata            const          0xfb0    0x10  main.o [1]
+  .rodata            const          0xfc0     0xc  main.o [1]
+  .rodata            const          0xfcc     0x8  main.o [1]
+  .rodata            const          0xfd4     0x0  packbits_init_single.o [4]
+  Initializer bytes  const          0xfd4     0x9  <for P2-1>
+                                  - 0xfdd   0xd71
+
+"P2", part 1 of 2:                           0x29
+  P2-1                        0x2000'0000    0x29  <Init block>
+    .data            inited   0x2000'0000     0x4  main.o [1]
+    .bss             inited   0x2000'0004     0x4  main.o [1]
+    .bss             inited   0x2000'0008     0x4  main.o [1]
+    .bss             inited   0x2000'000c     0x4  main.o [1]
+    .bss             inited   0x2000'0010     0x4  main.o [1]
+    .bss             inited   0x2000'0014     0x4  main.o [1]
+    .bss             inited   0x2000'0018     0x4  main.o [1]
+    .bss             inited   0x2000'001c     0x4  no_free_heap0.o [2]
+    .bss             inited   0x2000'0020     0x4  xgetmemchunk.o [2]
+    .data            inited   0x2000'0024     0x1  main.o [1]
+    .data            inited   0x2000'0025     0x1  main.o [1]
+    .bss             inited   0x2000'0026     0x1  main.o [1]
+    .bss             inited   0x2000'0027     0x1  main.o [1]
+    .bss             inited   0x2000'0028     0x1  main.o [1]
+                            - 0x2000'0029    0x29
+
+"P2", part 2 of 2:                         0x2404
+  .noinit            uninit   0x2000'002c   0x400  startup_ewarm.o [1]
+  HEAP                        0x2000'0430  0x2000  <Block>
+    HEAP             uninit   0x2000'0430  0x2000  <Block tail>
+                            - 0x2000'2430  0x2404
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0xfdd     0x1'ffff  0x1'f023
+  0x2000'0029  0x2000'002b       0x3
+  0x2000'2430  0x2000'7fff    0x5bd0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x9 (21% of destination):
+                0xfd4   0x9
+    1 destination range, total size 0x29:
+          0x2000'0000  0x29
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+command line/config:
+    -------------------------------------------------
+    Total:
+
+E:\embedded projects\Honda tiva\Debug\Obj: [1]
+    main.o                    2'888       64       33
+    startup_ewarm.o              30      620    1'024
+    -------------------------------------------------
+    Total:                    2'918      684    1'057
+
+dl7M_tln.a: [2]
+    exit.o                        4
+    low_level_init.o              4
+    no_free_heap0.o              76        1        4
+    xgetmemchunk.o               44                 4
+    -------------------------------------------------
+    Total:                      128        1        8
+
+m7M_tls.a: [3]
+    fpinit_M.o                   34
+    -------------------------------------------------
+    Total:                       34
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o        86
+    cexit.o                      10
+    cmain.o                      30
+    cstartup_M.o                 28
+    data_init.o                  40
+    packbits_init_single.o       58
+    -------------------------------------------------
+    Total:                      252
+
+shb_l.a: [5]
+    exit.o                       20
+    -------------------------------------------------
+    Total:                       20
+
+    Gaps                          6        2
+    Linker created                        16    8'192
+-----------------------------------------------------
+    Grand Total:              3'358      703    9'257
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0xf08          --   Gb  - Linker created -
+.iar.init_table$$Limit        0xf18          --   Gb  - Linker created -
+?main                         0xf55         Code  Gb  cmain.o [4]
+FaultISR                      0xf33    0x2  Code  Lc  startup_ewarm.o [1]
+HEAP$$Base              0x2000'0430          --   Gb  - Linker created -
+HEAP$$Limit             0x2000'2430          --   Gb  - Linker created -
+IntDefaultHandler             0xf35    0x2  Code  Lc  startup_ewarm.o [1]
+LCD_String                    0x4c9   0x22  Code  Gb  main.o [1]
+LCD_int                       0x4eb   0x34  Code  Gb  main.o [1]
+NmiSR                         0xf31    0x2  Code  Lc  startup_ewarm.o [1]
+Region$$Table$$Base           0xf08          --   Gb  - Linker created -
+Region$$Table$$Limit          0xf18          --   Gb  - Linker created -
+ResetISR                      0xf19   0x12  Code  Gb  startup_ewarm.o [1]
+Timer0IntHandler              0x26d   0x30  Code  Gb  main.o [1]
+Timer0_delay                  0x2f9    0xa  Code  Gb  main.o [1]
+Timer1IntHandler              0x303   0x14  Code  Gb  main.o [1]
+Timer5IntHandler              0x317    0x2  Code  Gb  main.o [1]
+WideTimer0IntHandler          0x319    0x2  Code  Gb  main.o [1]
+__cmain                       0xf55         Code  Gb  cmain.o [4]
+__data_GetMemChunk            0xe91   0x2c  Code  Gb  xgetmemchunk.o [2]
+__data_GetMemChunk::start
+                        0x2000'0020    0x4  Data  Lc  xgetmemchunk.o [2]
+__exit                        0xf89   0x14  Code  Gb  exit.o [5]
+__iar_data_init3              0xebd   0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0xee5         Code  Gb  fpinit_M.o [3]
+__iar_packbits_init_single3
+                              0xe57   0x3a  Code  Gb  packbits_init_single.o [4]
+__iar_program_start           0xf39         Code  Gb  cstartup_M.o [4]
+__iar_unaligned_memcpy4
+                              0xe01         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned_memcpy8
+                              0xe01         Code  Gb  ABImemcpy_unaligned.o [4]
+__low_level_init              0xf73    0x4  Code  Gb  low_level_init.o [2]
+__no_free_malloc              0xdb5   0x46  Code  Gb  no_free_heap0.o [2]
+__vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
+_call_main                    0xf61         Code  Gb  cmain.o [4]
+_exit                         0xf7d         Code  Gb  cexit.o [4]
+apply_op                      0x65d   0x6c  Code  Gb  main.o [1]
+changed                 0x2000'0025    0x1  Data  Gb  main.o [1]
+counting                0x2000'0026    0x1  Data  Gb  main.o [1]
+current_app             0x2000'0008    0x4  Data  Gb  main.o [1]
+current_state           0x2000'0004    0x4  Data  Gb  main.o [1]
+delay_micro                   0x335   0x16  Code  Gb  main.o [1]
+delay_milli                   0x31b   0x1a  Code  Gb  main.o [1]
+delay_timer                   0x3d1    0xe  Code  Gb  main.o [1]
+exit                          0xf77    0x4  Code  Gb  exit.o [2]
+get_key                       0x599   0xc4  Code  Gb  main.o [1]
+handleCalculator              0x6c9  0x156  Code  Gb  main.o [1]
+handlePrint                   0xa4f  0x186  Code  Gb  main.o [1]
+handleStopWatch               0x9ef   0x60  Code  Gb  main.o [1]
+handleTimer                   0x8ef  0x100  Code  Gb  main.o [1]
+handleTimerDisplay            0x881   0x3e  Code  Gb  main.o [1]
+index                   0x2000'0027    0x1  Data  Gb  main.o [1]
+initSecs                      0x8bf   0x30  Code  Gb  main.o [1]
+init_Timer0                   0x29d   0x5a  Code  Gb  main.o [1]
+init_systick                  0x3a7   0x1e  Code  Gb  main.o [1]
+initiGPIOF                    0x381   0x26  Code  Gb  main.o [1]
+keypad_init                   0x51f   0x7a  Code  Gb  main.o [1]
+lcd_4bits_cmd                 0x415   0x2e  Code  Gb  main.o [1]
+lcd_4bits_data                0x443   0x22  Code  Gb  main.o [1]
+lcd_init                      0x465   0x64  Code  Gb  main.o [1]
+lcd_write4bits                0x3df   0x36  Code  Gb  main.o [1]
+main                          0xc69   0xac  Code  Gb  main.o [1]
+num1                    0x2000'000c    0x4  Data  Gb  main.o [1]
+num2                    0x2000'0010    0x4  Data  Gb  main.o [1]
+op                      0x2000'0024    0x1  Data  Gb  main.o [1]
+pui32Stack              0x2000'002c  0x400  Data  Lc  startup_ewarm.o [1]
+qs                      0x2000'001c    0x4  Data  Lc  no_free_heap0.o [2]
+reset                         0xbd5   0x60  Code  Gb  main.o [1]
+reset_systick                 0x3c5    0xa  Code  Gb  main.o [1]
+stopwatchSecs           0x2000'0018    0x4  Data  Gb  main.o [1]
+stopwatchcounting       0x2000'0028    0x1  Data  Gb  main.o [1]
+systickHandler                0x34b   0x36  Code  Gb  main.o [1]
+timerIntDisplay               0x81f   0x62  Code  Gb  main.o [1]
+timerSecs               0x2000'0014    0x4  Data  Gb  main.o [1]
+timerdisplay            0x2000'0000    0x4  Data  Gb  main.o [1]
+
+
+[1] = E:\embedded projects\Honda tiva\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  3'358 bytes of readonly  code memory
+    703 bytes of readonly  data memory
+  9'257 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
